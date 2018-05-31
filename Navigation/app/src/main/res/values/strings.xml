@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Navigation</string>
+    <string name="app_name_blank">Search</string>
+    <string name="save">Save Map</string>
+    <string name="show">Show Map</string>
+    <string name="help">help</string>
+    <string name="origin_search">Origin/Search</string>
+    <string name="destination">Destination</string>
+    <string name="search">Search</string>
+    <string name="route">Route</string>
+    <string name="action_search">Search</string>
+    <string name="search_hint">Search Places</string>
+    <string name="search_settings">Search Places</string>
+    <string name="terrrain">TERRRAIN</string>
+    <string name="satellite">SATELLITE</string>
+    <string name="_0_km">0 km</string>
+    <string name="_0_min">0 min</string>
+    <string name="hybrid">H</string>
+    <string name="terrain">T</string>
+    <string name="satellitee">S</string>
+    <string name="normal">N</string>
+    <string name="google_maps">GOOGLE MAPS</string>
+    <string name="recent_map">RECENT MAP</string>
+</resources>

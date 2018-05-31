@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#07366e"
+    tools:context=".MapsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginEnd="5sp"
+        android:layout_marginStart="5sp"
+        android:layout_marginTop="30sp"
+        android:background="@drawable/style_v1"
+        android:elevation="5sp"
+        android:visibility="visible"
+        tools:targetApi="lollipop">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:gravity="center">
+
+            <com.tech.gigabyte.navigation.CustomAutoCompleteTextView
+                android:id="@+id/atv_places"
+                android:layout_width="250sp"
+                android:layout_height="50sp"
+                android:background="#00ffffff"
+                android:cursorVisible="false"
+                android:elevation="5sp"
+                android:gravity="center"
+                android:hint="@string/search_hint" />
+
+            <Button
+                android:id="@+id/btnSearchLocation"
+                android:layout_width="35sp"
+                android:layout_height="35sp"
+                android:background="@drawable/ic_action_search"
+                tools:targetApi="lollipop" />
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/route"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25sp"
+        android:background="#07366e"
+        android:elevation="5sp"
+        android:visibility="gone"
+        tools:targetApi="lollipop">
+
+        <com.tech.gigabyte.navigation.CustomAutoCompleteTextView
+            android:id="@+id/etOrigin"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="10sp"
+            android:layout_toLeftOf="@+id/btnFindPath"
+            android:layout_toStartOf="@+id/btnFindPath"
+            android:background="#e1fafafa"
+            android:cursorVisible="false"
+            android:elevation="5sp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:hint="@string/origin_search"
+            android:textColor="#09386f"
+            tools:targetApi="lollipop" />
+
+        <com.tech.gigabyte.navigation.CustomAutoCompleteTextView
+            android:id="@+id/etDestination"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_below="@+id/etOrigin"
+            android:layout_marginBottom="10sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="5sp"
+            android:layout_toLeftOf="@+id/btnFindPath"
+            android:layout_toStartOf="@+id/btnFindPath"
+            android:background="#e1fafafa"
+            android:cursorVisible="false"
+            android:elevation="5sp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:hint="@string/destination"
+            android:textColor="#09386f"
+            tools:targetApi="lollipop" />
+
+
+        <Button
+            android:id="@+id/btnFindPath"
+            android:layout_width="50sp"
+            android:layout_height="60sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5sp"
+            android:background="@android:drawable/ic_menu_send"
+            android:elevation="5sp"
+            tools:targetApi="lollipop" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="70sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginRight="20sp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/style"
+        android:contentDescription="@string/app_name"
+        android:cropToPadding="true"
+        android:elevation="5sp"
+        android:onClick="Show"
+        android:padding="4sp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_route"
+        tools:targetApi="lollipop" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25sp" />
+
+    <LinearLayout
+        android:id="@+id/L_duration"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="50sp"
+        android:layout_marginStart="50sp"
+        android:background="#09386f"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30sp"
+            android:layout_marginStart="20sp"
+            android:layout_weight="0.5"
+            android:drawableLeft="@drawable/ic_clock"
+            android:drawableStart="@drawable/ic_clock"
+            android:elevation="5sp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/_0_min"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:drawableLeft="@drawable/ic_distance"
+            android:drawableStart="@drawable/ic_distance"
+            android:elevation="5sp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/_0_km"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            tools:targetApi="lollipop" />
+
+    </LinearLayout>
+
+    <com.sa90.materialarcmenu.ArcMenu
+        android:id="@+id/mapview_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/style_v2"
+        android:elevation="7sp"
+        map:menu_color="#062243"
+        map:menu_open="arc_right"
+        map:menu_radius="100sp"
+        map:menu_ripple_color="@color/blue_grey"
+        map:menu_scr="@android:drawable/ic_dialog_map"
+        tools:targetApi="lollipop">
+
+        <TextView
+            android:id="@+id/hybrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:onClick="ViewHybrid"
+            android:shadowColor="@color/grey"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="12"
+            android:text="@string/hybrid"
+            android:textColor="#11232f"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/terrain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:onClick="ViewTerrain"
+            android:shadowColor="@color/grey"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="12"
+            android:text="@string/terrain"
+            android:textColor="#11232f"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/satellite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:onClick="ViewSatellite"
+            android:shadowColor="@color/grey"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="12"
+            android:text="@string/satellitee"
+            android:textColor="#11232f"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:onClick="ViewNormal"
+            android:shadowColor="@color/grey"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="12"
+            android:text="@string/normal"
+            android:textColor="#11232f"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+    </com.sa90.materialarcmenu.ArcMenu>
+
+</RelativeLayout>
